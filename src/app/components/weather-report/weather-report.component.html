@@ -11,6 +11,7 @@
         <span>{{data.main.feels_like | number: '0.0-0'}}&deg;C</span>
       </div>
       <div class="outlook">
+        <img [src]="data.image" class="image">
         <span>{{data['weather'][0].description | titlecase}}</span>
       </div>
     </div>

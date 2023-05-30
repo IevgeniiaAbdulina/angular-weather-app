@@ -23,13 +23,5 @@ export class WeatherReportComponent implements OnInit {
       filter((name) => !!name),
       concatMap((name) => this.weatherService.getWeatherForCity(name))
     )
-
-    this.data$.subscribe((res) => {
-      console.log(
-        '--> DATA: ', res['weather'][0].description,
-      )
-    })
-
   }
-
 }
