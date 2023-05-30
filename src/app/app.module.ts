@@ -17,6 +17,7 @@ import {NgFor} from '@angular/common';
 import { WeatherReportComponent } from './components/weather-report/weather-report.component';
 import {MatCardModule} from '@angular/material/card';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatSelectModule,
     NgFor,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

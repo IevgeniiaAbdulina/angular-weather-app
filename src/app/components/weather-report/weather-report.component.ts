@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from 'src/app/services/weather.service';
-import { Observable, map, filter, concatMap } from 'rxjs';
+import { Observable, map, filter, concatMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-weather-report',
@@ -11,6 +11,7 @@ import { Observable, map, filter, concatMap } from 'rxjs';
 export class WeatherReportComponent implements OnInit {
   data$: Observable<any>;
   today: Date = new Date();
+  loading: boolean = false;
 
   constructor(
     private weatherService: WeatherService,
@@ -21,7 +22,13 @@ export class WeatherReportComponent implements OnInit {
     this.data$ = this.route.params.pipe(
       map((params) => params['locationName']),
       filter((name) => !!name),
-      concatMap((name) => this.weatherService.getWeatherForCity(name))
+      tap(() => {
+        this.loading = true;
+      }),
+      concatMap((name) => this.weatherService.getWeatherForCity(name)),
+      tap(() => {
+        this.loading = false;
+      })
     )
   }
 }

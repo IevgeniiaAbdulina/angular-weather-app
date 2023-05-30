@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, delay, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class WeatherService {
       map((data) => ({
         ...data,
         image: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-      }))
+      })),
+      delay(500)
     );
   }
 }
