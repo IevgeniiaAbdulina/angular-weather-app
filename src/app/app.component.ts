@@ -1,6 +1,7 @@
 import { Component , OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
+import { Observable, Subject, map, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,51 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Weather App';
+  countries = [
+    {
+      name: "United Kingdom",
+      cities: ["London", "Warwick", "Birmingham"],
+    },
+    {
+      name: "United States",
+      cities: ["New York", "Chicago", "Washington"],
+    },
+    {
+      name: "Australia",
+      cities: ["Sydney", "Adelaide", "Melbourne"],
+    },
+    {
+      name: "Pakistan",
+      cities: ["Lahore", "Karachi", "Islamabad"],
+    },
+  ];
 
-  cities = ["London", "Paris", "Moscow", "New York", "Karachi", "Sydney"];
+  countryControl: FormControl;
+  cityControl: FormControl;
 
-  cityControl: FormControl = new FormControl("");
+  cities$: Observable<string>;
 
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.cityControl.valueChanges.subscribe((value) => {
-      this.router.navigate([value])
-    })
+    this.cityControl =  new FormControl("");
+    this.cityControl.valueChanges
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((value) => {
+        this.router.navigate([value])
+      });
+
+    this.countryControl = new FormControl("");
+
+    this.cities$ = this.countryControl.valueChanges.pipe(
+      map((country ) => country.cities)
+    )
   }
 
   ngOnDestroy(): void {
-
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
