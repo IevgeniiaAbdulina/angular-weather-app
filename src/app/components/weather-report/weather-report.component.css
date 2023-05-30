@@ -1,0 +1,49 @@
+/*# sourceMappingURL=weather-report.component.css.map */
+
+mat-card {
+  width: 250px;
+}
+
+mat-card::ng-deep.mat-card-header-text {
+  width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+
+  > div {
+    flex: 50%;
+    border-radius: 10px;
+  }
+
+  > .outlook {
+    padding: 10px;
+    color: black;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  > .temp {
+    background: lightblue;
+    padding: 10px;
+    color: black;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .big-text {
+    font-size: 30px;
+  }
+
+  .caption {
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  .image {
+    height: 80px;
+  }
+}

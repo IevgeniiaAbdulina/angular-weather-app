@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   cities = ["London", "Paris", "Moscow", "New York", "Karachi", "Sydney"];
 
-  cityControl: FormControl = new FormControl("");;
+  cityControl: FormControl = new FormControl("");
 
 
   constructor(private router: Router) {}
