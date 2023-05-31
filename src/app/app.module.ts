@@ -18,12 +18,14 @@ import { WeatherReportComponent } from './components/weather-report/weather-repo
 import {MatCardModule} from '@angular/material/card';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { GeolocationWeatherReportComponent } from './components/geolocation-weather-report/geolocation-weather-report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherReportComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GeolocationWeatherReportComponent
   ],
   imports: [
     BrowserModule,

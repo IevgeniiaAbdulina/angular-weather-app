@@ -1,0 +1,19 @@
+<mat-card class="mat-elevation-z5" *ngIf="geolocationData$ | async as geolocationData">
+  <mat-card-header>
+    <mat-card-title>{{geolocationData.name}}</mat-card-title>
+    <mat-card-subtitle>Today: {{today | date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex-row">
+      <div class="temp">
+        <span class="big-text">{{geolocationData.main.temp | number: '0.0-0'}}&deg;C </span>
+        <span>Feels like </span>
+        <span>{{geolocationData.main.feels_like | number: '0.0-0'}}&deg;C</span>
+      </div>
+      <div class="outlook">
+        <img [src]="geolocationData.image" class="image">
+        <span>{{geolocationData['weather'][0].description | titlecase}}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
