@@ -7,8 +7,9 @@
       [formControl]="searchControl"
       [matAutocomplete]="auto">
 
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)='selectOption($event)'>
       <mat-option *ngFor="let city of cityAutoSuggestions | async" [value]="city.name">
+        <mat-icon matTextPrefix>location_on</mat-icon>
         <span>{{getCityDisplayName(city)}}</span>
       </mat-option>
     </mat-autocomplete>
@@ -18,3 +19,23 @@
     <mat-error>{{getErrorMessage()}}</mat-error>
   </mat-form-field>
 </div>
+
+<mat-card class="mat-elevation-z5" *ngIf="weatherData$ | async as data">
+  <mat-card-header>
+    <mat-card-title>{{data.name}}'s weather</mat-card-title>
+    <mat-card-subtitle>Today: {{today | date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex-row">
+      <div class="temp">
+        <span class="big-text">{{data.main.temp | number: '0.0-0'}}&deg;C </span>
+        <span>Feels like </span>
+        <span>{{data.main.feels_like | number: '0.0-0'}}&deg;C</span>
+      </div>
+      <div class="outlook">
+        <img [src]="data.image" class="image">
+        <span>{{data['weather'][0].description | titlecase}}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

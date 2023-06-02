@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, debounceTime, distinctUntilChanged, map, of, startWith, switchMap } from 'rxjs';
 import { CitySummary } from 'src/app/interfaces/city-summary';
 import { GeoResponse } from 'src/app/interfaces/geo-response';
 import { SearchResult } from 'src/app/interfaces/search-result';
+import { WeatherResponse } from 'src/app/interfaces/weather-response';
 import { SearchService } from 'src/app/services/search.service';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-search-places',
@@ -16,8 +19,12 @@ export class SearchPlacesComponent implements OnInit {
   public searchResults$: Observable<SearchResult[]>;
   public cityAutoSuggestions: Observable<CitySummary[]>;
 
+  weatherData$: Observable<any>;
+  today: Date = new Date();
+
   constructor(
     private searchService: SearchService,
+    private weatherService: WeatherService
   ) {}
 
   ngOnInit() {
@@ -38,6 +45,9 @@ export class SearchPlacesComponent implements OnInit {
               map(
                 (response: GeoResponse) => {
                   console.log('LENGTH RES ', response.data.length);
+                  response.data.forEach((element: any) => {
+                    console.log('--> response item', JSON.stringify(element))
+                  });
 
                   return response.data
                 },
@@ -48,7 +58,7 @@ export class SearchPlacesComponent implements OnInit {
 
           return cities;
         })
-      )
+      );
   }
 
   getErrorMessage() {
@@ -59,7 +69,6 @@ export class SearchPlacesComponent implements OnInit {
   getCityDisplayName(city: CitySummary) {
     if(!city) null;
     let name = city.name;
-    console.log('--> ', city);
 
     name += ", " + city.region;
     name += ", " + city.country;
@@ -67,4 +76,15 @@ export class SearchPlacesComponent implements OnInit {
     return name;
   }
 
+  selectOption(e: MatAutocompleteSelectedEvent) {
+    const foundCity = e.option.value;
+    console.log('FOUND CITY: ', foundCity);
+
+    this.weatherData$ = this.weatherService.getWeatherForCity(foundCity)
+      .pipe(
+        map((response: WeatherResponse) => response,
+          (error: any) => console.log(error)
+        )
+      );
+  };
 }
