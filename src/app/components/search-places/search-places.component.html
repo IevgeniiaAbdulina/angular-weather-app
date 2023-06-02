@@ -1,0 +1,20 @@
+<div class="search-container">
+  <mat-form-field >
+    <input
+      type="text"
+      matInput
+      placeholder="Search places"
+      [formControl]="searchControl"
+      [matAutocomplete]="auto">
+
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let city of cityAutoSuggestions | async" [value]="city.name">
+        <span>{{getCityDisplayName(city)}}</span>
+      </mat-option>
+    </mat-autocomplete>
+
+    <mat-icon matTextPrefix>arrow_back</mat-icon>
+    <mat-icon matSuffix>close</mat-icon>
+    <mat-error>{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>

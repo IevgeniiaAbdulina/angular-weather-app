@@ -19,13 +19,16 @@ import {MatCardModule} from '@angular/material/card';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { GeolocationWeatherReportComponent } from './components/geolocation-weather-report/geolocation-weather-report.component';
+import { SearchPlacesComponent } from './components/search-places/search-places.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherReportComponent,
     PageNotFoundComponent,
-    GeolocationWeatherReportComponent
+    GeolocationWeatherReportComponent,
+    SearchPlacesComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { GeolocationWeatherReportComponent } from './components/geolocation-weat
     NgFor,
     MatInputModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
