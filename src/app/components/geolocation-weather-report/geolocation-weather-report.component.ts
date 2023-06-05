@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { WeatherService } from 'src/app/services/weather.service';
+import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
   selector: 'app-geolocation-weather-report',

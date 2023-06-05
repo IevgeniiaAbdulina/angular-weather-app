@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, debounceTime, distinctUntilChanged, map, of, startWith, switchMap } from 'rxjs';
-import { CitySummary } from 'src/app/interfaces/city-summary';
-import { GeoResponse } from 'src/app/interfaces/geo-response';
-import { SearchResult } from 'src/app/interfaces/search-result';
-import { WeatherResponse } from 'src/app/interfaces/weather-response';
-import { SearchService } from 'src/app/services/search.service';
-import { WeatherService } from 'src/app/services/weather.service';
+import { CitySummary } from 'src/app/models/city-summary';
+import { GeoResponse } from 'src/app/models/geo-response';
+import { SearchResult } from 'src/app/models/search-result';
+import { WeatherResponse } from 'src/app/models/weather-response';
+import { SearchService } from 'src/app/services/search/search.service';
+import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
   selector: 'app-search-places',

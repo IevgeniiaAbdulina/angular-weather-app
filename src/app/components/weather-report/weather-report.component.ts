@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WeatherService } from 'src/app/services/weather.service';
 import { Observable, map, filter, concatMap, tap } from 'rxjs';
+import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
   selector: 'app-weather-report',
