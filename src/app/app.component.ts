@@ -9,6 +9,7 @@ import { Observable, Subject, map, takeUntil } from 'rxjs';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  search: boolean = false;
   title = 'Weather App';
   countries = [
     {
@@ -56,5 +57,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  searchToggle() {
+    return this.search = !this.search;
+  }
+
+  clearInput() {
+    return console.log('Clear this input field')
   }
 }
