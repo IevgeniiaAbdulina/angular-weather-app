@@ -7,20 +7,11 @@ import { WeatherControllerModule } from './modules/weather-controller/weather-co
 const weatherControllerModule = () => import('./modules/weather-controller/weather-controller.module').then(m => m.WeatherControllerModule);
 
 const routes: Routes = [
-  // { path: "",
-  //   component: WeatherReportComponent
-  // },
-
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: "home",
-  loadChildren: weatherControllerModule
-  },
-  // { path: ":locationName",
-  //   component: WeatherReportComponent
-  // },
-  { path: '**',
-    component: PageNotFoundComponent
-  }
+  { path: '', redirectTo: 'weather', pathMatch: 'full' },
+  { path: "weather", loadChildren: weatherControllerModule },
+  // { path: "", component: WeatherReportComponent },
+  // { path: ":locationName", component: WeatherReportComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
