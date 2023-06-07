@@ -1,5 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+
+import { CitySummary } from 'src/app/models/city-summary';
+import { GeoResponse } from 'src/app/models/geo-response';
+
+import { SearchService } from 'src/app/services/search/search.service';
+
+import {
+  Observable,
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  of,
+  startWith,
+  switchMap
+} from 'rxjs';
+
 
 @Component({
   selector: 'app-weather-controller',
@@ -9,25 +26,77 @@ import { Observable } from 'rxjs';
 export class WeatherControllerComponent implements OnInit {
   public loading: boolean = false;
   public search: boolean = false;
+  public searchControl: FormControl;
+  public cityAutoSuggestions: Observable<CitySummary[]>;
 
   public cityName: string;
 
-  constructor() {}
+  constructor(
+    private searchService: SearchService) {}
 
   ngOnInit() {
-    this.findCityName()
+    this.searchControl = new FormControl('');
+
+    this.findCityName();
   }
 
-  searchToggle() {
-    return this.search = !this.search;
+  searchToggle(): void {
+    this.search = !this.search;
   }
 
-  clearInput() {
-    return console.log('Clear this input field')
+  clearInput(): void {
+    this.searchControl.reset()
+  }
+
+  closeInput(): void {
+    this.clearInput();
+    this.searchToggle();
   }
 
   findCityName() {
-    console.log('Find city cityName')
-    return this.cityName = 'Oslo';
+    this.cityAutoSuggestions = this.searchControl.valueChanges
+      .pipe(
+        startWith(''),
+        debounceTime(1000),
+        distinctUntilChanged(),
+        switchMap((cityNamePrefix: string) => {
+          let cities: Observable<CitySummary[]> = of([]);
+
+          if(cityNamePrefix && cityNamePrefix.length >= 3) {
+
+            cities = this.searchService.findCities(cityNamePrefix)
+            .pipe(
+              map(
+                (response: GeoResponse) => {
+                  response.data.forEach((element: any) => {
+                    console.log('--> response item', JSON.stringify(element))
+                  });
+
+                  return response.data
+                },
+                (error: any) => console.log(error),
+              )
+            )
+          };
+
+          return cities;
+        })
+      );
   }
+
+  getCityDisplayName(city: CitySummary) {
+    if(!city) null;
+    let name = city.name;
+
+    name += ", " + city.region;
+    name += ", " + city.country;
+
+    return name;
+  }
+
+  selectOption(e: MatAutocompleteSelectedEvent): void {
+    this.cityName = e.option.value;
+
+    console.log('FOUND CITY: ', this.cityName);
+  };
 }

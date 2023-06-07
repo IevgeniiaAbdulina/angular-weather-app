@@ -25,9 +25,42 @@
 
   <mat-toolbar-row *ngIf="search">
     <mat-form-field  style="flex: 1 1 auto">
-      <input type="text" matInput placeholder="Search">
-      <mat-icon matTextPrefix (click)="searchToggle()">arrow_back</mat-icon>
-      <mat-icon matSuffix (click)="clearInput()">close</mat-icon>
+      <input
+        type="text"
+        matInput
+        placeholder="Search places"
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+      >
+
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)='selectOption($event)'>
+          <mat-option *ngFor="let city of cityAutoSuggestions | async" [value]="city.name">
+            <mat-icon matTextPrefix>location_on</mat-icon>
+            <span>{{getCityDisplayName(city)}}</span>
+          </mat-option>
+      </mat-autocomplete>
+
+      <button
+        mat-icon-button
+        matTextPrefix
+        class="arrow_back-icon"
+        aria-label="Icon-button with arrow_back icon"
+        (click)="closeInput()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        matSuffix
+        class="close-icon"
+        aria-label="Icon-button with close icon"
+        (click)="clearInput()">
+        <mat-icon>close</mat-icon>
+      </button>
+
     </mat-form-field>
   </mat-toolbar-row>
 
@@ -37,27 +70,25 @@
       class="progress-bar-bar">
     </mat-progress-bar>
 
-  <!-- SIDENAV -->
-
   <mat-sidenav-container class="example-sidenav-container"
     style="width: 400px;
     height: auto;
     margin: 12px 0;
     padding: 16px;
     border: 1px solid #555;">
+
+    <!-- SIDENAV -->
+
     <mat-sidenav #snav fixedTopGap="56">
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
 
     <!-- SIDENAV CONTENT -->
 
-      <app-sidenav></app-sidenav>
-
-    </mat-sidenav>
-
     <mat-sidenav-content>
-      <!-- WEATHER FORECAST -->
-
-      <app-weather-forecast [cityName]="cityName"></app-weather-forecast>
-
+      <mat-card>
+        <app-weather-forecast [cityName]="cityName"></app-weather-forecast>
+      </mat-card>
     </mat-sidenav-content>
   </mat-sidenav-container>
 

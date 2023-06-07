@@ -1,11 +1,16 @@
-<mat-card class="mat-elevation-z5">
-  <mat-card-header>
+<!-- <mat-card> -->
+<div>
+  <mat-card-header style>
     <mat-card-title>{{today | date}}</mat-card-title>
-    <mat-card-subtitle>
-      <span>ic</span>
-      {{data.name | uppercase}}
-    </mat-card-subtitle>
+    <mat-card-subtitle>{{data.name | uppercase}}</mat-card-subtitle>
+    <span class="card-spacer" style="flex: 1 1 auto"></span>
+    <div class="temp">
+      <span class="big-text">{{data.main.temp | number: '0.0-0'}} &deg;C </span>
+    </div>
   </mat-card-header>
+
+  <mat-divider style="margin: 1rem"></mat-divider>
+
   <mat-card-content>
     <div class="flex-row">
       <div class="temp">
@@ -17,4 +22,7 @@
       </div>
     </div>
   </mat-card-content>
-</mat-card>
+
+  <mat-divider style="margin: 1rem"></mat-divider>
+</div>
+<!-- </mat-card> -->

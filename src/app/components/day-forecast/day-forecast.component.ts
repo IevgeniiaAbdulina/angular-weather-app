@@ -12,8 +12,6 @@ export class DayForecastComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('DAY forecast data: ', this.data)
-  }
+  ngOnInit(): void {  }
 
 }

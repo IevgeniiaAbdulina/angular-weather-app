@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { WeatherResponse } from 'src/app/models/weather-response';
 import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
@@ -29,8 +30,14 @@ export class WeatherForecastComponent implements OnInit {
 
   }
 
-  getWeatherForCity() {}
+  getWeatherForCity() {
+    console.log('GET city NAME --> ', this.cityName);
 
-  getGeolocation() {}
-
+    this.data$ = this.weatherService.getWeatherForCity(this.cityName)
+      .pipe(
+        map((response: WeatherResponse) => response,
+          (error: any) => console.log(error)
+        )
+      );
+  }
 }
