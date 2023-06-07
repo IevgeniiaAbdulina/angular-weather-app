@@ -16,6 +16,8 @@ import {
   startWith,
   switchMap
 } from 'rxjs';
+import { WeatherService } from 'src/app/services/weather/weather.service';
+import { WeatherResponse } from 'src/app/models/weather-response';
 
 
 @Component({
@@ -28,11 +30,14 @@ export class WeatherControllerComponent implements OnInit {
   public search: boolean = false;
   public searchControl: FormControl;
   public cityAutoSuggestions: Observable<CitySummary[]>;
+  public weatherData$ = new Observable<any>();
 
   public cityName: string;
 
   constructor(
-    private searchService: SearchService) {}
+    private searchService: SearchService,
+    private weatherService: WeatherService
+  ) {}
 
   ngOnInit() {
     this.searchControl = new FormControl('');
@@ -95,8 +100,15 @@ export class WeatherControllerComponent implements OnInit {
   }
 
   selectOption(e: MatAutocompleteSelectedEvent): void {
-    this.cityName = e.option.value;
+    const name = e.option.value;
 
-    console.log('FOUND CITY: ', this.cityName);
+    console.log('FOUND CITY: ', name);
+
+    this.weatherData$ = this.weatherService.getWeatherForCity(name)
+      .pipe(
+        map((response: WeatherResponse) => response,
+          (error: any) => console.log(error)
+        )
+      );
   };
 }

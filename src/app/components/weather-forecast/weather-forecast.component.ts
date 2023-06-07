@@ -27,17 +27,5 @@ export class WeatherForecastComponent implements OnInit {
 
       this.data$ = this.weatherService.getWeatherForLatLon(this.latitude, this.longitude);
     })
-
-  }
-
-  getWeatherForCity() {
-    console.log('GET city NAME --> ', this.cityName);
-
-    this.data$ = this.weatherService.getWeatherForCity(this.cityName)
-      .pipe(
-        map((response: WeatherResponse) => response,
-          (error: any) => console.log(error)
-        )
-      );
   }
 }

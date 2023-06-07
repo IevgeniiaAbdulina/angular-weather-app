@@ -1,5 +1,5 @@
-<app-day-forecast *ngIf="data$ | async as data"
-  [today]="today"
-  [data]="data">
-</app-day-forecast>
-<app-weather-details *ngIf="data$ | async as data" [data]="data"></app-weather-details>
+<div *ngIf="data$ | async as data">
+  <app-day-forecast [today]="today" [data]="data"></app-day-forecast>
+  <app-weather-details [data]="data"></app-weather-details>
+</div>
+
