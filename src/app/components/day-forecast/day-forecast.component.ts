@@ -6,12 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./day-forecast.component.sass']
 })
 export class DayForecastComponent implements OnInit {
-  @Input() data$: any;
+  @Input() data: any;
   @Input() today: any;
   @Input() cityName: string;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('DAY forecast data: ', this.data)
+  }
 
 }

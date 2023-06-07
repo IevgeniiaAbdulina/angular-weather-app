@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./weather-details.component.sass']
 })
 export class WeatherDetailsComponent {
-  @Input() data$: any;
+  @Input() data: any;
 
 }

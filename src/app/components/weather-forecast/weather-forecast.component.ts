@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { WeatherService } from 'src/app/services/weather/weather.service';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -10,12 +11,23 @@ export class WeatherForecastComponent implements OnInit {
   public data$: Observable<any>;
   public today: Date = new Date();
 
+  private latitude: number;
+  private longitude: number;
+
   @Input()
   cityName: any
 
-  constructor() {}
+  constructor(private weatherService: WeatherService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+
+      this.data$ = this.weatherService.getWeatherForLatLon(this.latitude, this.longitude);
+    })
+
+  }
 
   getWeatherForCity() {}
 
