@@ -1,2 +1,5 @@
-<app-day-forecast></app-day-forecast>
-<app-weather-details></app-weather-details>
+<app-day-forecast
+  [today]="today"
+  [data$]="data$"
+  [cityName]="cityName"></app-day-forecast>
+<app-weather-details [data$]="data$"></app-weather-details>

@@ -1,1 +1,20 @@
-<p>day-forecast works!</p>
+<mat-card class="mat-elevation-z5">
+  <mat-card-header>
+    <mat-card-title>{{today | date}}</mat-card-title>
+    <mat-card-subtitle>
+      <span>ic</span>
+      {{cityName | uppercase}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex-row">
+      <div class="temp">
+        <span class="big-text">Temp &deg;C </span>
+      </div>
+      <div class="outlook">
+        <img class="image">
+        <span>image</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

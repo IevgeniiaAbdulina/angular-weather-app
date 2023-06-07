@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from '../components/page-not-found/page-not-fou
 import { SearchPlacesComponent } from '../components/search-places/search-places.component';
 import { WeatherDetailsComponent } from '../components/weather-details/weather-details.component';
 import { WeatherReportComponent } from '../components/weather-report/weather-report.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 
 
@@ -22,7 +23,8 @@ const components = [
   WeatherDetailsComponent,
   WeatherReportComponent,
   SidenavComponent,
-  WeatherForecastComponent
+  WeatherForecastComponent,
+  ToolbarComponent
 ]
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-weather-details',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./weather-details.component.sass']
 })
 export class WeatherDetailsComponent {
+  @Input() data$: any;
 
 }
