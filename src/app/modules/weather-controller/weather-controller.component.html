@@ -1,97 +1,29 @@
-
-<!-- TOOLBAR || SIDENAV || WEATHER FORECAST CONTENT  -->
-
+<!-- TOOLBAR || SIDENAV -> WEATHER FORECAST COMPONENT  -->
 <div>
   <!-- TOOLBAR -->
 
-  <mat-toolbar *ngIf="!search">
+  <mat-toolbar>
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
+    <h1 class="example-app-name">Weather App</h1>
     <span class="toolbar-spacer" style="flex: 1 1 auto"></span>
-
-    <!-- FIND CITY BUTTON -->
-
-    <button
-      mat-icon-button
-      class="add-icon"
-      aria-label="Icon-button with add icon"
-      (click)="searchToggle()">
-      <mat-icon>add</mat-icon>
-    </button>
-
   </mat-toolbar>
 
-  <!-- SEARCH CITY INPUT FIELD -->
-
-  <mat-toolbar-row *ngIf="search">
-    <mat-form-field  style="flex: 1 1 auto">
-      <input
-        type="text"
-        matInput
-        placeholder="Search places"
-        [formControl]="searchControl"
-        [matAutocomplete]="auto"
-      >
-
-      <mat-autocomplete
-        autoActiveFirstOption
-        #auto="matAutocomplete"
-        (optionSelected)='selectOption($event)'>
-          <mat-option *ngFor="let city of cityAutoSuggestions | async" [value]="city.name">
-            <mat-icon matTextPrefix>location_on</mat-icon>
-            <span>{{getCityDisplayName(city)}}</span>
-          </mat-option>
-      </mat-autocomplete>
-
-      <button
-        mat-icon-button
-        matTextPrefix
-        class="arrow_back-icon"
-        aria-label="Icon-button with arrow_back icon"
-        (click)="closeInput()">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-
-      <button
-        mat-icon-button
-        matSuffix
-        class="close-icon"
-        aria-label="Icon-button with close icon"
-        (click)="clearInput()">
-        <mat-icon>close</mat-icon>
-      </button>
-
-    </mat-form-field>
-  </mat-toolbar-row>
-
-  <!-- PROGRESSBAR -->
-
-  <mat-progress-bar
-    *ngIf="loading"
-      mode="indeterminate"
-      class="progress-bar-bar">
-    </mat-progress-bar>
+  <!-- SIDENAV -->
 
   <mat-sidenav-container class="example-sidenav-container"
-    style="width: 400px;
+    style="width: 100%;
     height: auto;
     margin: 12px 0;
-    padding: 16px;
-    border: 1px solid #555;">
-
-    <!-- SIDENAV -->
+    padding: 16px;">
 
     <mat-sidenav #snav fixedTopGap="56">
       <app-sidenav></app-sidenav>
     </mat-sidenav>
 
-    <!-- SIDENAV CONTENT -->
+    <!-- SIDENAV CONTENT || WEATHER FORECAST COMPONENT -->
 
     <mat-sidenav-content>
-      <mat-card>
-        <app-weather-forecast [cityName]="cityName"></app-weather-forecast>
-      </mat-card>
+      <app-weather-forecast></app-weather-forecast>
     </mat-sidenav-content>
   </mat-sidenav-container>
-
 </div>
