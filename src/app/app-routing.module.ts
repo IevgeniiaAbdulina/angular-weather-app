@@ -9,8 +9,6 @@ const weatherControllerModule = () => import('./modules/weather-controller/weath
 const routes: Routes = [
   { path: '', redirectTo: 'weather', pathMatch: 'full' },
   { path: "weather", loadChildren: weatherControllerModule },
-  // { path: "", component: WeatherReportComponent },
-  // { path: ":locationName", component: WeatherReportComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
