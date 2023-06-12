@@ -1,0 +1,38 @@
+/*
+********************************
+*
+*  FOOTER STYLE
+*
+*********************************
+*/
+
+footer {
+  padding: 0 16px;
+  color: $base-black;
+  margin: 16px 0;
+
+  .attribution {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 16px;
+    border-top: 1px solid $base-black;
+  }
+
+  a {
+    color: $base-red;
+    font-weight: 500;
+  }
+
+  a:hover {
+    color: $base-black;
+  }
+
+  span {
+    &.date {
+      font-weight: 500;
+    }
+  }
+}

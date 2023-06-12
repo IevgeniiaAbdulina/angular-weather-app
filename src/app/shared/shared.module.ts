@@ -12,6 +12,7 @@ import { SearchPlacesComponent } from '../components/search-places/search-places
 import { WeatherDetailsComponent } from '../components/weather-details/weather-details.component';
 import { WeatherReportComponent } from '../components/weather-report/weather-report.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -24,14 +25,15 @@ const components = [
   WeatherReportComponent,
   SidenavComponent,
   WeatherForecastComponent,
-  ToolbarComponent
+  ToolbarComponent,
+  FooterComponent
 ]
 
 
 
 @NgModule({
   declarations: [
-    ...components
+    ...components,
   ],
   imports: [
     CommonModule,

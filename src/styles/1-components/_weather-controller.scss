@@ -6,6 +6,14 @@
 *********************************
 */
 
+app-weather-controller {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
 mat-sidenav-container {
   &.content-wrapper {
     width: 100%;
