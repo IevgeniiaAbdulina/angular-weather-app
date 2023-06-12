@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.sass']
 })
 export class SidenavComponent {
-
+  openModal() {
+    console.log('Open Temperature units modal')
+  }
 }

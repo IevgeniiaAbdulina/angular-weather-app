@@ -17,6 +17,7 @@ mat-card {
 mat-card {
   &.mat-mdc-card {
     background-color: $base-white;
+    box-shadow: none;
   }
 
   mat-card-header {

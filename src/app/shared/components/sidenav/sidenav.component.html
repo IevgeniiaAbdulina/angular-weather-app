@@ -1,7 +1,82 @@
-<p>sidenav works!</p>
-<mat-nav-list>
-  <a mat-list-item routerLink=".">nav item</a>
-  <a mat-list-item routerLink=".">nav item</a>
-  <a mat-list-item routerLink=".">nav item</a>
-  <a mat-list-item routerLink=".">nav item</a>
+<mat-nav-list class="settings-container">
+  <h2>Settings</h2>
+  <section class="section-units">
+    <h5>units</h5>
+    <ul class="units-list">
+      <li (click)="openModal()">
+        <a mat-list-item routerLink="#">
+          <div class="units-item">
+            <span>Temperature units</span>
+            <div class="units-item-unt">
+              <span>C</span>
+              <mat-icon>
+                <span  class="material-symbols-outlined">
+                  expand_all
+                </span>
+              </mat-icon>
+            </div>
+          </div>
+        </a>
+
+      </li>
+      <li (click)="openModal()">
+        <a mat-list-item routerLink="#">
+          <div class="units-item">
+            <span>Wind speed units</span>
+            <div class="units-item-unt">
+              <span>km/h</span>
+              <mat-icon>
+                <span class="material-symbols-outlined">
+                  expand_all
+                </span>
+              </mat-icon>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li (click)="openModal()">
+        <a mat-list-item routerLink="#">
+          <div class="units-item">
+            <span>Pressure units</span>
+            <div class="units-item-unt">
+              <span>mBar</span>
+              <mat-icon>
+                <span class="material-symbols-outlined">
+                  expand_all
+                </span>
+              </mat-icon>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+   </section>
+
+   <mat-divider class="divider"></mat-divider>
+
+   <section class="section-about">
+    <h5>about weather</h5>
+    <ul class="section-about-list">
+      <li>
+        <a mat-list-item routerLink="#">
+          <div class="about-item">
+            <span>Feedback</span>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a mat-list-item routerLink="#">
+          <div class="about-item">
+            <span>Support this project</span>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
 </mat-nav-list>

@@ -5,3 +5,66 @@
 *
 *********************************
 */
+
+mat-nav-list {
+  &.settings-container {
+    padding: 0 16px;
+    color: $base-black;
+
+    h2 {
+      padding: 0 16px;
+    }
+
+    h5 {
+      padding: 0 16px;
+      margin: 32px 0 16px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .section {
+
+      &-units {
+        .units-item {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: space-between;
+
+          &-unt {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0.6;
+
+            span:nth-child(1) {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+
+      &-about {
+        &-list {
+          .about-item {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+
+            span:nth-child(2) {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
