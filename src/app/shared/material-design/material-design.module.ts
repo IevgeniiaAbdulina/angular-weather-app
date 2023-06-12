@@ -12,6 +12,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 const materialModules = [
   MatToolbarModule,
@@ -25,7 +26,8 @@ const materialModules = [
   MatProgressBarModule,
   MatAutocompleteModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatMenuModule
 ]
 
 @NgModule({

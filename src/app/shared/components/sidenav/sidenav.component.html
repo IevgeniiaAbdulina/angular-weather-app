@@ -3,12 +3,12 @@
   <section class="section-units">
     <h5>units</h5>
     <ul class="units-list">
-      <li (click)="openModal()">
+      <li [matMenuTriggerFor]="tempMenu">
         <a mat-list-item routerLink="#">
           <div class="units-item">
             <span>Temperature units</span>
             <div class="units-item-unt">
-              <span>C</span>
+              <span>{{tempUnits}}</span>
               <mat-icon>
                 <span  class="material-symbols-outlined">
                   expand_all
@@ -16,15 +16,21 @@
               </mat-icon>
             </div>
           </div>
+
+          <mat-menu #tempMenu="matMenu"
+            xPosition="before">
+            <button mat-menu-item>{{celsius}}</button>
+            <button mat-menu-item>{{fahrenheit}}</button>
+          </mat-menu>
         </a>
 
       </li>
-      <li (click)="openModal()">
+      <li [matMenuTriggerFor]="windMenu">
         <a mat-list-item routerLink="#">
           <div class="units-item">
             <span>Wind speed units</span>
             <div class="units-item-unt">
-              <span>km/h</span>
+              <span>{{windUnits}}</span>
               <mat-icon>
                 <span class="material-symbols-outlined">
                   expand_all
@@ -32,14 +38,21 @@
               </mat-icon>
             </div>
           </div>
+
+          <mat-menu #windMenu="matMenu"
+            xPosition="before">
+            <button mat-menu-item>Kilometers per hour ({{windKmH}})</button>
+            <button mat-menu-item>Meters per second ({{windMS}})</button>
+            <button mat-menu-item>Miles per hour ({{windMPh}})</button>
+          </mat-menu>
         </a>
       </li>
-      <li (click)="openModal()">
+      <li [matMenuTriggerFor]="pressureMenu">
         <a mat-list-item routerLink="#">
           <div class="units-item">
             <span>Pressure units</span>
             <div class="units-item-unt">
-              <span>mBar</span>
+              <span>{{pressureUnits}}</span>
               <mat-icon>
                 <span class="material-symbols-outlined">
                   expand_all
@@ -47,6 +60,13 @@
               </mat-icon>
             </div>
           </div>
+
+          <mat-menu #pressureMenu="matMenu"
+            xPosition="before">
+            <button mat-menu-item>Hectopascal ({{hectopascal}})</button>
+            <button mat-menu-item>Millibar ({{millibar}})</button>
+            <button mat-menu-item>Standard atmosphere ({{standardAtmosphere}})</button>
+          </mat-menu>
         </a>
       </li>
     </ul>
