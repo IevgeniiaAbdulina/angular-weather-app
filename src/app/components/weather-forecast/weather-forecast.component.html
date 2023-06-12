@@ -1,23 +1,19 @@
-<mat-card
-  style="
-  display: flex;
-  flex-direction: column;">
+<mat-card class="weather-forecast-container">
 
   <mat-card-header>
-    <mat-card-title style="margin: 1rem 0;">
-      <button mat-fab extended color="primary" (click)="getWeatherForCity()" style="margin-right: 1rem;">
-        <mat-icon>add_location</mat-icon>
-          Find city
+    <mat-card-title class="header-actions">
+      <button mat-flat-button class="btn btn-add_location" (click)="getWeatherForCity()">
+        <mat-icon class="btn-ic">add_location</mat-icon>
+          <span class="btn-text">Find city</span>
       </button>
-      <button mat-fab extended color="accent" (click)="getWeatherForLocation()">
-        <mat-icon>my_location</mat-icon>
-          Get weather for my location
+      <button mat-flat-button class="btn btn-my_location" (click)="getWeatherForLocation()">
+        <mat-icon class="btn-ic">my_location</mat-icon>
+          My location
       </button>
     </mat-card-title>
-    <mat-card-subtitle>
-      <mat-form-field *ngIf="search"
-        style="flex: 1 1 auto; margin: 1rem 0">
-        <input
+    <mat-card-subtitle class="form-container">
+      <mat-form-field *ngIf="search" class="search-form" appearance="outline">
+        <input class="search-input"
           type="text"
           matInput
           placeholder="Search places"
@@ -48,8 +44,8 @@
     </mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content *ngIf="data$ | async as data">
-    <mat-card>
+  <mat-card-content *ngIf="data$ | async as data" class="forecast-container">
+    <mat-card class="forecast-card">
       <app-day-forecast [today]="today" [data]="data"></app-day-forecast>
       <app-weather-details [data]="data"></app-weather-details>
     </mat-card>

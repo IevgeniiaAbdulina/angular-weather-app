@@ -1,0 +1,17 @@
+/*
+********************************
+*
+*  WEATHER CONTROLLER STYLE
+*
+*********************************
+*/
+
+mat-sidenav-container {
+  &.content-wrapper {
+    width: 100%;
+    height: auto;
+    margin: 12px 0;
+    padding: 0 16px;
+    background-color: transparent;
+  }
+}

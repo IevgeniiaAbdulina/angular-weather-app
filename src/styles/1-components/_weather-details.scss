@@ -1,0 +1,23 @@
+/*
+********************************
+*
+*  WEATHER DETAILS STYLE
+*
+*********************************
+*/
+
+.details {
+  &-card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &-wrap {
+    width: 75%;
+  }
+
+  &-data {
+    margin: 0 0.5rem;
+  }
+}

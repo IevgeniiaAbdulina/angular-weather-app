@@ -1,0 +1,102 @@
+/***********************************
+
+  CONSTANTS
+
+************************************/
+// colors variables
+
+$base-blue: hsla(185, 96, 33, 1);
+$base-yellow: hsla(33, 96, 48, 1);
+$base-red: hsla(16, 86, 56, 1);
+$base-black: hsla(240, 2, 26, 1);
+$base-white: hsla(48, 14, 93, 1);
+
+// font-families
+
+$font-stack: (
+  'Poppins',
+  'Roboto',
+  sans-serif
+);
+
+
+// z-indexes
+
+$z-indexes: (
+  'modal': 5000,
+  'dropdown': 4000,
+  'default': 1,
+  'below': -1
+);
+
+// ----------------------------------------------------------------
+
+
+/* Color Theme Swatches in Hex */
+$San-Jose-Airport---Iconography-1-hex: #010326;
+$San-Jose-Airport---Iconography-2-hex: #010B40;
+$San-Jose-Airport---Iconography-3-hex: #F0F2F1;
+$San-Jose-Airport---Iconography-4-hex: #F27405;
+$San-Jose-Airport---Iconography-5-hex: #F25C05;
+
+/* Color Theme Swatches in RGBA */
+$San-Jose-Airport---Iconography-1-rgba: rgba(0,2,38, 1);
+$San-Jose-Airport---Iconography-2-rgba: rgba(1,10,63, 1);
+$San-Jose-Airport---Iconography-3-rgba: rgba(239,242,241, 1);
+$San-Jose-Airport---Iconography-4-rgba: rgba(242,115,4, 1);
+$San-Jose-Airport---Iconography-5-rgba: rgba(242,91,4, 1);
+
+/* Color Theme Swatches in HSLA */
+$San-Jose-Airport---Iconography-1-hsla: hsla(236, 96, 7, 1);
+$San-Jose-Airport---Iconography-2-hsla: hsla(230, 96, 12, 1);
+$San-Jose-Airport---Iconography-3-hsla: hsla(151, 8, 94, 1);
+$San-Jose-Airport---Iconography-4-hsla: hsla(28, 96, 48, 1);
+$San-Jose-Airport---Iconography-5-hsla: hsla(22, 96, 48, 1);
+
+// ----------------------------------------------------------------
+
+// default sizing
+/* Color Theme Swatches in Hex */
+$MetaSpark-Branding-and-Website-Design-1-hex: #F2BDD0;
+$MetaSpark-Branding-and-Website-Design-2-hex: #F06BF2;
+$MetaSpark-Branding-and-Website-Design-3-hex: #C991D9;
+$MetaSpark-Branding-and-Website-Design-4-hex: #F2B705;
+$MetaSpark-Branding-and-Website-Design-5-hex: #F27405;
+
+/* Color Theme Swatches in RGBA */
+$MetaSpark-Branding-and-Website-Design-1-rgba: rgba(242,188,208, 1);
+$MetaSpark-Branding-and-Website-Design-2-rgba: rgba(239,106,242, 1);
+$MetaSpark-Branding-and-Website-Design-3-rgba: rgba(201,145,216, 1);
+$MetaSpark-Branding-and-Website-Design-4-rgba: rgba(242,182,4, 1);
+$MetaSpark-Branding-and-Website-Design-5-rgba: rgba(242,115,4, 1);
+
+/* Color Theme Swatches in HSLA */
+$MetaSpark-Branding-and-Website-Design-1-hsla: hsla(337, 67, 84, 1);
+$MetaSpark-Branding-and-Website-Design-2-hsla: hsla(298, 84, 68, 1);
+$MetaSpark-Branding-and-Website-Design-3-hsla: hsla(286, 48, 70, 1);
+$MetaSpark-Branding-and-Website-Design-4-hsla: hsla(45, 96, 48, 1);
+$MetaSpark-Branding-and-Website-Design-5-hsla: hsla(28, 96, 48, 1);
+
+// ----------------------------------------------------------------
+
+
+/* Color Theme Swatches in Hex */
+$Orange-slice-as-the-sun-concept-1-hex: #0396A6;
+$Orange-slice-as-the-sun-concept-2-hex: #A0EAF2;
+$Orange-slice-as-the-sun-concept-3-hex: #F2CB05;
+$Orange-slice-as-the-sun-concept-4-hex: #F2B705;
+$Orange-slice-as-the-sun-concept-5-hex: #F28705;
+
+/* Color Theme Swatches in RGBA */
+$Orange-slice-as-the-sun-concept-1-rgba: rgba(3,149,165, 1);
+$Orange-slice-as-the-sun-concept-2-rgba: rgba(159,234,242, 1);
+$Orange-slice-as-the-sun-concept-3-rgba: rgba(242,202,4, 1);
+$Orange-slice-as-the-sun-concept-4-rgba: rgba(242,182,4, 1);
+$Orange-slice-as-the-sun-concept-5-rgba: rgba(242,135,4, 1);
+
+/* Color Theme Swatches in HSLA */
+$Orange-slice-as-the-sun-concept-1-hsla: hsla(185, 96, 33, 1);
+$Orange-slice-as-the-sun-concept-2-hsla: hsla(185, 76, 78, 1);
+$Orange-slice-as-the-sun-concept-3-hsla: hsla(50, 96, 48, 1);
+$Orange-slice-as-the-sun-concept-4-hsla: hsla(45, 96, 48, 1);
+$Orange-slice-as-the-sun-concept-5-hsla: hsla(33, 96, 48, 1);

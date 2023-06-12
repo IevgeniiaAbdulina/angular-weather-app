@@ -1,5 +1,25 @@
-<div>
-  <p>Humidity {{data.main.humidity}}%</p>
-  <p>Wind {{data.wind.speed}} km/h</p>
-  <p>Pressure {{data.main.pressure}} mBar</p>
-</div>
+<mat-card-content class="details">
+  <div class="details-card">
+    <span class="details-category">Humidity</span>
+    <div class="details-wrap">
+      <span class="details-data">{{data.main.humidity}}</span>
+      <span class="details-units">%</span>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <span class="details-category">Wind</span>
+    <div class="details-wrap">
+      <span class="details-data">{{data.wind.speed}}</span>
+      <span class="details-units">km/h</span>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <span class="details-category">Pressure</span>
+    <div class="details-wrap">
+      <span class="details-data">{{data.main.pressure}}</span>
+    <span class="details-units">mBar</span>
+    </div>
+  </div>
+</mat-card-content>

@@ -1,0 +1,60 @@
+/******************************
+
+  GLOBAL STYLES
+
+*******************************/
+
+// general layout
+
+$breakpoints: (
+  'small': 767px,
+  'medium': 992px,
+  'large': 1200px
+);
+
+
+// base font
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+
+// font-families
+
+$font-stack: (
+  'Poppins',
+  'Roboto',
+  sans-serif
+);
+
+
+// base font size
+
+$font-size: 1rem;
+
+
+// import Fonts
+
+
+// Base styles
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  display: block;
+  font-size: 14px;
+  @media (min-width:1024px) {
+      font-size: 16px;
+  }
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $base-white;
+  font-family: $font-stack;
+  color: $base-black;
+}
