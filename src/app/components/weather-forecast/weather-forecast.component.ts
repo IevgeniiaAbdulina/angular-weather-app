@@ -36,6 +36,8 @@ export class WeatherForecastComponent implements OnInit {
   ngOnInit() {
     this.searchControl = new FormControl('');
     this.findCityName();
+
+    this.getWeatherForLocation();
   }
 
   searchToggle(): void {
