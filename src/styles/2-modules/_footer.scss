@@ -18,6 +18,9 @@ footer {
     justify-content: space-between;
     padding: 40px 16px;
     border-top: 1px solid $base-black;
+    @media (max-width: 767px) {
+      padding: 16px;
+    }
   }
 
   a {

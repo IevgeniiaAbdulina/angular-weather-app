@@ -55,7 +55,9 @@ mat-card {
     width: 420px;
     box-shadow: none;
     z-index: map-get($map: $z-indexes, $key: 'default');
-
+    @media (max-width: 460px) {
+      width: calc(100vw - 64px);
+    }
   }
 
   &.forecast-card::after {

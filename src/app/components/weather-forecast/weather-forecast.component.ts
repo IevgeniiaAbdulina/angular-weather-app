@@ -25,9 +25,6 @@ export class WeatherForecastComponent implements OnInit {
   public loading: boolean = false;
   public searchControl: FormControl;
 
-  @Input()
-  cityName: any
-
   constructor(
     private searchService: SearchService,
     private weatherService: WeatherService
@@ -63,7 +60,6 @@ export class WeatherForecastComponent implements OnInit {
   }
 
   getWeatherForCity() {
-    console.log('weather for city')
     this.searchToggle();
   }
 
@@ -81,13 +77,7 @@ export class WeatherForecastComponent implements OnInit {
             cities = this.searchService.findCities(cityNamePrefix)
             .pipe(
               map(
-                (response: GeoResponse) => {
-                  response.data.forEach((element: any) => {
-                    console.log('--> response item', JSON.stringify(element))
-                  });
-
-                  return response.data
-                },
+                (response: GeoResponse) => response.data,
                 (error: any) => console.log(error),
               )
             )

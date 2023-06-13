@@ -32,6 +32,13 @@ mat-divider {
   align-items: flex-end;
   justify-content: space-between;
 
+  @media (max-width: 460px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
   .temp {
     span{
       &.big-text {
@@ -46,4 +53,5 @@ mat-divider {
 .outlook {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
