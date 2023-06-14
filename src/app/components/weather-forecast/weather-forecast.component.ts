@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, debounceTime, distinctUntilChanged, map, of, startWith, switchMap } from 'rxjs';
@@ -34,6 +34,15 @@ export class WeatherForecastComponent implements OnInit {
     this.searchControl = new FormControl('');
     this.findCityName();
 
+    console.log(new Date().toLocaleTimeString())
+    // Update weather forecast every hour
+      setInterval(() => {
+        this.data$.subscribe(data => {
+          this.data$ = this.weatherService.getWeatherForCity(data.name)
+        })
+        console.log('Test timeout', new Date().toLocaleTimeString())
+      }, 3600000);
+
     this.getWeatherForLocation();
   }
 
@@ -57,10 +66,6 @@ export class WeatherForecastComponent implements OnInit {
 
       this.data$ = this.weatherService.getWeatherForLatLon(this.latitude, this.longitude);
     })
-  }
-
-  getWeatherForCity() {
-    this.searchToggle();
   }
 
   findCityName() {
