@@ -7,7 +7,6 @@ import { Observable, delay, map } from 'rxjs';
 })
 export class WeatherService {
   APIkey: string = 'ea0bbc74362141bcef9e2e20bff7ec0f';
-  units: string; // default is Kelvin
 
   constructor(private http: HttpClient) { }
 
@@ -36,8 +35,8 @@ export class WeatherService {
    * longitude
    */
   getWeatherForLatLon(lat: number, lon: number): Observable<any> {
-    this.units = 'metric'; // Celsius
-    const path = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${this.units}&appid=${this.APIkey}`;
+    const units = 'metric'; // Celsius
+    const path = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${this.APIkey}`;
 
     return this.http.get<any>(path).pipe(
       map((data) => ({

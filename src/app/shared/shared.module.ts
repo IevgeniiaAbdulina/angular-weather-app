@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { MaterialDesignModule } from './material-design/material-design.module';
@@ -29,6 +30,7 @@ const components = [
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialDesignModule,
   ],
   exports: [

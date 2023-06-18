@@ -3,71 +3,78 @@
   <section class="section-units">
     <h5>units</h5>
     <ul class="units-list">
-      <li [matMenuTriggerFor]="tempMenu">
-        <a mat-list-item routerLink="#">
-          <div class="units-item">
-            <span>Temperature units</span>
-            <div class="units-item-unt">
-              <span>{{tempUnits}}</span>
-              <mat-icon>
-                <span  class="material-symbols-outlined">
-                  expand_all
-                </span>
-              </mat-icon>
-            </div>
+
+      <!-- TEMPERATURE UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Temperature units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="tempUnitsSelected" class="options-field-select">
+              <mat-option [value]="option.valueUnits" *ngFor="let option of tempUnits">
+                {{ option.valueUnits }}
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
           </div>
-
-          <mat-menu #tempMenu="matMenu"
-            xPosition="before">
-            <button mat-menu-item>{{celsius}}</button>
-            <button mat-menu-item>{{fahrenheit}}</button>
-          </mat-menu>
-        </a>
-
+        </mat-form-field>
       </li>
-      <li [matMenuTriggerFor]="windMenu">
-        <a mat-list-item routerLink="#">
-          <div class="units-item">
-            <span>Wind speed units</span>
-            <div class="units-item-unt">
-              <span>{{windUnits}}</span>
-              <mat-icon>
-                <span class="material-symbols-outlined">
-                  expand_all
-                </span>
-              </mat-icon>
-            </div>
-          </div>
 
-          <mat-menu #windMenu="matMenu"
-            xPosition="before">
-            <button mat-menu-item>Kilometers per hour ({{windKmH}})</button>
-            <button mat-menu-item>Meters per second ({{windMS}})</button>
-            <button mat-menu-item>Miles per hour ({{windMPh}})</button>
-          </mat-menu>
-        </a>
+      <!-- WIND SPEED UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Wind speed units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="windUnitSelected" class="options-field-select">
+              <mat-select-trigger>
+                <span>{{windUnitSelected}}</span>
+              </mat-select-trigger>
+              <mat-option [value]="option.valueUnits" *ngFor="let option of windUnits">
+                {{option.value}} ({{option.valueUnits}})
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
+          </div>
+        </mat-form-field>
       </li>
-      <li [matMenuTriggerFor]="pressureMenu">
-        <a mat-list-item routerLink="#">
-          <div class="units-item">
-            <span>Pressure units</span>
-            <div class="units-item-unt">
-              <span>{{pressureUnits}}</span>
-              <mat-icon>
-                <span class="material-symbols-outlined">
-                  expand_all
-                </span>
-              </mat-icon>
-            </div>
-          </div>
 
-          <mat-menu #pressureMenu="matMenu"
-            xPosition="before">
-            <button mat-menu-item>Hectopascal ({{hectopascal}})</button>
-            <button mat-menu-item>Millibar ({{millibar}})</button>
-            <button mat-menu-item>Standard atmosphere ({{standardAtmosphere}})</button>
-          </mat-menu>
-        </a>
+      <!-- PRESSURE UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Pressure units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="pressureUnitSelected" class="options-field-select">
+              <mat-select-trigger>
+                <span>{{pressureUnitSelected}}</span>
+              </mat-select-trigger>
+
+              <mat-option [value]="option.valueUnits" *ngFor="let option of pressureUnits">
+                {{option.value}} ({{option.valueUnits}})
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
+          </div>
+        </mat-form-field>
       </li>
     </ul>
    </section>
