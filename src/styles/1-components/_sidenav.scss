@@ -27,28 +27,6 @@ mat-nav-list {
     }
 
     .section {
-
-      &-units {
-        .units-item {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          align-items: center;
-          justify-content: space-between;
-
-          &-unt {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            opacity: 0.6;
-
-            span:nth-child(1) {
-              margin-right: 8px;
-            }
-          }
-        }
-      }
-
       &-about {
         &-list {
           .about-item {
@@ -65,7 +43,6 @@ mat-nav-list {
         }
       }
     }
-
   }
 }
 

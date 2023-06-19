@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+
+interface Units {
+  valueUnits: string,
+  value?: string,
+}
 
 enum TempTypeUnits {
   celsius = 0x2103,
@@ -18,18 +22,16 @@ enum AtmosphericPressureUnits {
   'atm'
 }
 
-interface TempUnits {
-  valueUnits: string
+interface TempUnits extends Units {
+  type?: 'temperature'
 }
 
-interface WindUnits {
-  value: string,
-  valueUnits: string
+interface WindUnits extends Units {
+  type?: 'windSpeed'
 }
 
-interface PressureUnits {
-  value: string,
-  valueUnits: string
+interface PressureUnits extends Units {
+  type?: 'pressure'
 }
 
 
@@ -66,13 +68,51 @@ export class SidenavComponent implements OnInit{
     {value: 'Hectopascal', valueUnits: AtmosphericPressureUnits[0]},
     {value: 'Millibar', valueUnits: AtmosphericPressureUnits[1]},
     {value: 'Standard atmosphere', valueUnits: AtmosphericPressureUnits[2]}
-  ]
+  ];
 
-  constructor( ) {}
+  public selectedUnits: any = {};
 
-  ngOnInit() {
+  constructor( ) {
     this.tempUnitsSelected = this.tempUnits[0].valueUnits;
     this.windUnitSelected = this.windUnits[1].valueUnits;
     this.pressureUnitSelected = this.pressureUnits[0].valueUnits;
   }
+
+  ngOnInit() {
+    this.selectedUnits = {
+      'temperature': this.tempUnitsSelected,
+      'windSpeed': this.windUnitSelected,
+      'pressure': this.pressureUnitSelected
+    };
+
+    let setSelectedUnits = JSON.stringify(this.selectedUnits);
+    localStorage.setItem('selectedUnits', setSelectedUnits);
+  }
+
+  changeSelected(value: any, type: string) {
+    let units = JSON.parse(localStorage.getItem("selectedUnits") || '');
+
+    console.log('1 value: ', value, ' --> type: ', type, ' \n ', units);
+
+    switch (type) {
+      case 'temperature':
+        units.temperature = value;
+        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        break;
+      case 'windSpeed':
+        units.windSpeed = value;
+        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        break;
+
+      case 'pressure':
+        units.pressure = value;
+        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        break;
+
+      default:
+        console.log('Please pick a type of units!')
+    }
+    console.log('1 value: ', value, ' --> type: ', type, ' \n ', units);
+  }
+
 }

@@ -11,7 +11,7 @@
           <span>Temperature units</span>
           <div class="options-field-wrap">
 
-            <mat-select [(ngModel)]="tempUnitsSelected" class="options-field-select">
+            <mat-select [(ngModel)]="tempUnitsSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'temperature')">
               <mat-option [value]="option.valueUnits" *ngFor="let option of tempUnits">
                 {{ option.valueUnits }}
               </mat-option>
@@ -33,7 +33,7 @@
           <span>Wind speed units</span>
           <div class="options-field-wrap">
 
-            <mat-select [(ngModel)]="windUnitSelected" class="options-field-select">
+            <mat-select [(ngModel)]="windUnitSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'windSpeed')">
               <mat-select-trigger>
                 <span>{{windUnitSelected}}</span>
               </mat-select-trigger>
@@ -58,7 +58,7 @@
           <span>Pressure units</span>
           <div class="options-field-wrap">
 
-            <mat-select [(ngModel)]="pressureUnitSelected" class="options-field-select">
+            <mat-select [(ngModel)]="pressureUnitSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'pressure')">
               <mat-select-trigger>
                 <span>{{pressureUnitSelected}}</span>
               </mat-select-trigger>
