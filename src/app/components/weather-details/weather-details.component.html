@@ -3,7 +3,7 @@
     <span class="details-category">Humidity</span>
     <div class="details-wrap">
       <span class="details-data">{{data.main.humidity}}</span>
-      <span class="details-units">%</span>
+      <span class="details-units">{{units.humidity}}</span>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <span class="details-category">Wind</span>
     <div class="details-wrap">
       <span class="details-data">{{data.wind.speed}}</span>
-      <span class="details-units">m/s</span>
+      <span class="details-units">{{units.windSpeed}}</span>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
     <span class="details-category">Pressure</span>
     <div class="details-wrap">
       <span class="details-data">{{data.main.pressure}}</span>
-    <span class="details-units">hPa</span>
+    <span class="details-units">{{units.pressure}}</span>
     </div>
   </div>
 </mat-card-content>

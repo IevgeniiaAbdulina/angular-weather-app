@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ForecastUnits } from 'src/app/models/forecast-units';
+import { ForecastUnitsService } from 'src/app/services/forecast-units/forecast-units.service';
 
 @Component({
   selector: 'app-day-forecast',
@@ -10,8 +12,14 @@ export class DayForecastComponent implements OnInit {
   @Input() today: any;
   @Input() cityName: string;
 
-  constructor() {}
+  public newUnits: ForecastUnits;
 
-  ngOnInit(): void {  }
+  constructor(private unitsService: ForecastUnitsService) {}
 
+  ngOnInit(): void {
+    this.unitsService.units.subscribe(data => {
+      this.newUnits = data;
+      console.log(this.newUnits.temperature)
+    })
+   }
 }

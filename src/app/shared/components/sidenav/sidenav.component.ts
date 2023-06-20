@@ -1,38 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Units {
-  valueUnits: string,
-  value?: string,
-}
-
-enum TempTypeUnits {
-  celsius = 0x2103,
-  fahrenheit = 0x2109,
-}
-
-enum WindSpeedUnits {
-  'km/h',
-  'm/s',
-  'mph'
-}
-
-enum AtmosphericPressureUnits {
-  'hPa',
-  'mbar',
-  'atm'
-}
-
-interface TempUnits extends Units {
-  type?: 'temperature'
-}
-
-interface WindUnits extends Units {
-  type?: 'windSpeed'
-}
-
-interface PressureUnits extends Units {
-  type?: 'pressure'
-}
+import { AtmosphericPressureUnits, ForecastUnits, PressureUnits, TempTypeUnits, TempUnits, WindSpeedUnits, WindUnits } from 'src/app/models/forecast-units';
+import { ForecastUnitsService } from 'src/app/services/forecast-units/forecast-units.service';
 
 
 @Component({
@@ -70,9 +38,9 @@ export class SidenavComponent implements OnInit{
     {value: 'Standard atmosphere', valueUnits: AtmosphericPressureUnits[2]}
   ];
 
-  public selectedUnits: any = {};
+  public selectedUnits: ForecastUnits = {};
 
-  constructor( ) {
+  constructor(private unitsService: ForecastUnitsService) {
     this.tempUnitsSelected = this.tempUnits[0].valueUnits;
     this.windUnitSelected = this.windUnits[1].valueUnits;
     this.pressureUnitSelected = this.pressureUnits[0].valueUnits;
@@ -82,7 +50,8 @@ export class SidenavComponent implements OnInit{
     this.selectedUnits = {
       'temperature': this.tempUnitsSelected,
       'windSpeed': this.windUnitSelected,
-      'pressure': this.pressureUnitSelected
+      'pressure': this.pressureUnitSelected,
+      'humidity': '%'
     };
 
     let setSelectedUnits = JSON.stringify(this.selectedUnits);
@@ -92,27 +61,24 @@ export class SidenavComponent implements OnInit{
   changeSelected(value: any, type: string) {
     let units = JSON.parse(localStorage.getItem("selectedUnits") || '');
 
-    console.log('1 value: ', value, ' --> type: ', type, ' \n ', units);
-
     switch (type) {
       case 'temperature':
         units.temperature = value;
-        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        this.unitsService.updateUnits(units)
         break;
       case 'windSpeed':
         units.windSpeed = value;
-        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        this.unitsService.updateUnits(units)
         break;
 
       case 'pressure':
         units.pressure = value;
-        localStorage.setItem('selectedUnits', JSON.stringify(units));
+        this.unitsService.updateUnits(units)
         break;
 
       default:
         console.log('Please pick a type of units!')
     }
-    console.log('1 value: ', value, ' --> type: ', type, ' \n ', units);
   }
 
 }

@@ -9,7 +9,7 @@
   <mat-card-content>
     <div class="forecas-details">
       <div class="temp">
-        <span class="big-text">{{data.main.temp | number: '0.0-0'}} &deg;C </span>
+        <span class="big-text">{{data.main.temp | number: '0.0-0'}} {{newUnits.temperature}}</span>
       </div>
       <div class="outlook">
         <img [src]="data.image" class="image">
