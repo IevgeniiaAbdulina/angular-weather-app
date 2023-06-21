@@ -5,18 +5,23 @@ import { ForecastUnitsService } from 'src/app/services/forecast-units/forecast-u
 @Component({
   selector: 'app-weather-details',
   templateUrl: './weather-details.component.html',
-  styleUrls: ['./weather-details.component.sass']
+  styleUrls: ['./weather-details.component.sass'],
 })
 export class WeatherDetailsComponent implements OnInit {
   @Input() data: any;
 
   public units: ForecastUnits;
+  public customData : any;
 
   constructor(private unitsService: ForecastUnitsService) {}
 
   ngOnInit(): void {
-    this.unitsService.units.subscribe(data => {
-      this.units = data;
+    this.customData = this.data;
+
+    this.unitsService.units.subscribe(res => {
+      this.units = res;
+
+      this.customData = this.unitsService.updateData(this.units, this.data);
     })
   }
 }
