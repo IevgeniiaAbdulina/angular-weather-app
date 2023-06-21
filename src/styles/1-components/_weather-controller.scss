@@ -17,10 +17,13 @@ app-weather-controller {
 mat-sidenav-container {
   &.content-wrapper {
     width: 100%;
-    min-height: calc(100vh - 264px);
-    margin: 12px 0;
+    min-height: calc(100vh - 80px);
+    margin: 12px 0 0;
     padding: 0 16px;
     background-color: transparent;
+    @media (max-width: 767px) {
+      min-height: calc(100vh - 72px);
+    }
   }
 }
 

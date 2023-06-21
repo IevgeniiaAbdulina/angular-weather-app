@@ -12,15 +12,8 @@ footer {
 
   .attribution {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 16px;
-    border-top: 1px solid $base-black;
-    @media (max-width: 767px) {
-      padding: 16px;
-    }
+    flex-direction: column;
+    align-items: flex-start;;
   }
 
   a {
@@ -30,11 +23,23 @@ footer {
 
   a:hover {
     color: $base-black;
+
+    .github-icon {
+      filter: none;
+    }
   }
 
   span {
     &.date {
       font-weight: 500;
     }
+  }
+
+  .github-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    margin-top: 4px;
+    filter: invert(48%) sepia(77%) saturate(2169%) hue-rotate(341deg) brightness(95%) contrast(96%);
   }
 }
