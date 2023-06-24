@@ -1,0 +1,57 @@
+/*
+********************************
+*
+*  DAY FORECAST STYLE
+*
+*********************************
+*/
+
+mat-card-title {
+  &.card-title-date {
+    color: $base-red;
+  }
+}
+
+span {
+  &.card-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+mat-divider {
+  &.divider {
+    margin: 1rem;
+  }
+}
+
+.forecas-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media (max-width: 460px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .temp {
+    span{
+      &.big-text {
+        font-size: 48px;
+        letter-spacing: -4px;
+        color: $base-black;
+      }
+    }
+  }
+}
+
+.outlook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

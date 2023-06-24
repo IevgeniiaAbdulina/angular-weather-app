@@ -1,0 +1,36 @@
+/*
+********************************
+*
+*  WEATHER CONTROLLER STYLE
+*
+*********************************
+*/
+
+app-weather-controller {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+mat-sidenav-container {
+  &.content-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    margin: 12px 0 0;
+    padding: 0 16px;
+    background-color: transparent;
+    @media (max-width: 767px) {
+      min-height: calc(100vh - 72px);
+    }
+  }
+}
+
+mat-sidenav {
+  &.snav-contsiner {
+    width: 300px;
+    left: 0;
+    background: $base-white;
+  }
+}

@@ -1,0 +1,138 @@
+/*
+********************************
+*
+*  SIDENAV STYLE
+*
+*********************************
+*/
+
+mat-nav-list {
+  &.settings-container {
+    padding: 0 16px;
+    color: $base-black;
+
+    h2 {
+      padding: 0 16px;
+    }
+
+    h5 {
+      padding: 0 16px;
+      margin: 32px 0 16px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .section {
+      &-about {
+        &-list {
+          .about-item {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+
+            span:nth-child(2) {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+button {
+  &.units-options-btn {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+span.mdc-list-item__primary-text {
+  width: 100%;
+}
+
+// Custom Select Form Field Style
+
+mat-form-field {
+  &.custom-selected-field {
+    &.mat-mdc-form-field {
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      color: $base-black;
+
+      &:focus {
+        background: transparent;
+      }
+    }
+
+    div.mat-mdc-select-arrow-wrapper {
+      display: none;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      background-color: transparent;
+    }
+
+    .mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay {
+      opacity: 0;
+    }
+
+    .mdc-line-ripple::before, .mdc-line-ripple::after {
+      display: none;
+    }
+
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mat-mdc-select {
+      width: auto;
+    }
+  }
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  .mdc-menu-surface.mat-mdc-select-panel {
+    width: auto;
+  }
+}
+
+.cdk-overlay-pane {
+  justify-content: flex-end;
+}
+
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+  width: auto;
+  min-width: 100px;
+  border-radius: 4px;
+}
+
+mat-form-field {
+  cursor: pointer;
+
+  mat-icon {
+    &.options-field-icon {
+      opacity: 0.6;
+    }
+  }
+
+  .options-field-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .options-field-select {
+    opacity: 0.6;
+    margin-right: 8px;
+  }
+}

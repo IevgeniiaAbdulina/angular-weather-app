@@ -1,0 +1,21 @@
+  <mat-card-header>
+    <mat-card-title class="card-title-date">{{today | date}}</mat-card-title>
+    <mat-card-subtitle>{{data.name | uppercase}}</mat-card-subtitle>
+    <span class="card-spacer"></span>
+  </mat-card-header>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <mat-card-content>
+    <div class="forecas-details">
+      <div class="temp">
+        <span class="big-text">{{data.main.temp | number: '0.0-0'}} {{newUnits.temperature}}</span>
+      </div>
+      <div class="outlook">
+        <img [src]="data.image" class="image">
+        <span>{{data['weather'][0].description | titlecase}}</span>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-divider class="divider"></mat-divider>

@@ -1,0 +1,54 @@
+<mat-card class="weather-forecast-container">
+
+  <mat-card-header>
+    <mat-card-title class="header-actions">
+      <button mat-flat-button class="btn btn-add_location" (click)="searchToggle()">
+        <mat-icon class="btn-ic">add_location</mat-icon>
+          <span class="btn-text">Find city</span>
+      </button>
+      <button mat-flat-button class="btn btn-my_location" (click)="getWeatherForLocation()">
+        <mat-icon class="btn-ic">my_location</mat-icon>
+          My location
+      </button>
+    </mat-card-title>
+    <mat-card-subtitle class="form-container">
+      <mat-form-field *ngIf="search" class="search-form" appearance="outline">
+        <input class="search-input"
+          type="text"
+          matInput
+          placeholder="Search places"
+          [formControl]="searchControl"
+          [matAutocomplete]="auto"
+        >
+
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)='selectOption($event)'>
+            <mat-option *ngFor="let city of cityAutoSuggestions | async" [value]="city.name">
+              <mat-icon matTextPrefix>location_on</mat-icon>
+              <span>{{getCityDisplayName(city)}}</span>
+            </mat-option>
+        </mat-autocomplete>
+
+        <button
+          mat-icon-button
+          matSuffix
+          class="close-icon"
+          aria-label="Icon-button with close icon"
+          (click)="closeInput()">
+          <mat-icon>close</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content *ngIf="data$ | async as data" class="forecast-container">
+    <mat-card class="forecast-card">
+      <app-day-forecast [today]="today" [data]="data"></app-day-forecast>
+      <app-weather-details [data]="data"></app-weather-details>
+    </mat-card>
+  </mat-card-content>
+
+</mat-card>

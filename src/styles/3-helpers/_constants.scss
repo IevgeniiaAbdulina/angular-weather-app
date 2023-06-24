@@ -1,0 +1,30 @@
+/***********************************
+
+  CONSTANTS
+
+************************************/
+// colors variables
+
+$base-blue: hsla(185, 96, 33, 1);
+$base-yellow: hsla(33, 96, 48, 1);
+$base-red: hsla(16, 86, 56, 1);
+$base-black: hsla(240, 2, 26, 1);
+$base-white: hsla(48, 14, 93, 1);
+
+// font-families
+
+$font-stack: (
+  'Poppins',
+  'Roboto',
+  sans-serif
+);
+
+
+// z-indexes
+
+$z-indexes: (
+  'modal': 5000,
+  'dropdown': 4000,
+  'default': 1,
+  'below': -1
+);

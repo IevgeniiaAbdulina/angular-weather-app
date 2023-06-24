@@ -1,0 +1,23 @@
+mat-toolbar {
+  &.custom-toolbar {
+    background: transparent;
+    color: $base-black;
+  }
+
+  h1.app-name {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-weight: 500;
+    color: $base-black;
+  }
+
+  span {
+    &.toolbar-spacer {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

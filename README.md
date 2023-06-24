@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="#">
+    <a href="https://vercel.com">
       Demo
     </a>
     <span> | </span>
@@ -20,8 +20,6 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -31,57 +29,42 @@
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
-<!-- OVERVIEW -->
-
 ## Overview
 
-<!-- todo: change information -->
+<div align="start">
+  <img src="./src/assets/screenshots/weather-app-img.png" width="350">
+</div>
+<div align="start">
+  <img src="./src/assets/screenshots/weather-mobile-img.png" width="150">
+  <img src="./src/assets/screenshots/weather-mobile-searching-img.png" width="150">
+  <img src="./src/assets/screenshots/weather-mobile-settings-img.png" width="150">
+</div>
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
-
-<!-- Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :) -->
+- You can try this project just by the link below:
+  > [The Angular project has been deployed with Vercel](https://vercel.com)
+- The Weather Application uses the [OpenWeather API](https://openweathermap.org/api) to provide a city's current weather forecast. The app also uses [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities) to Get global city, region, and country data for searching custom cities.
+- You can get a weather forecast for your geolocation (allow getting geolocation for your browser).
+- You can get a weather forecast for your chosen city.
+- You can change a forecast unit's settings.
+- You can use this application in a browser and on a mobile screen.
 
 ### Built With
 
 A list of major frameworks that I built this project using:
 
-- [Angular](https://angular.io/)
+- [Angular CLI 16.0.3](https://angular.io/)
 - [Angular Material](https://material.angular.io)
-- [RxJS](https://rxjs-dev.firebaseapp.com/guide/overview)
-- [TypeScript](https://www.typescriptlang.org/)
+- [RxJS 7.8.1](https://rxjs-dev.firebaseapp.com/guide/overview)
+- [TypeScript 5.0.4 ](https://www.typescriptlang.org/)
 - [Open weather API](https://openweathermap.org/api)
+- [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities)
 
 ## Features
 
 - Simple interface
 - Detailed weather: Date, Temperature, Humidity, Wind, Pressure.
-- Dark and white theme are available
-- Animated weather icons
+- Choose your weather forecast units.
 - Supported languages: English
-  <!-- - Choose your favorite color template -->
-  <!-- - Free without advertisement -->
-
-## How To Use
-
-<!-- Example: -->
-
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/IevgeniiaAbdulina/angular-weather-app.git
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
-```
 
 ## Acknowledgements
 

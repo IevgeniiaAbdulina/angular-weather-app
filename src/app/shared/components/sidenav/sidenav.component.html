@@ -1,0 +1,118 @@
+<mat-nav-list class="settings-container">
+  <h2>Settings</h2>
+
+  <!-- UNITS SECTION -->
+
+  <section class="section-units">
+    <h5>units</h5>
+    <ul class="units-list">
+
+      <!-- TEMPERATURE UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Temperature units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="tempUnitsSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'temperature')">
+              <mat-option [value]="option.valueUnits" *ngFor="let option of tempUnits">
+                {{ option.valueUnits }}
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
+          </div>
+        </mat-form-field>
+      </li>
+
+      <!-- WIND SPEED UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Wind speed units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="windUnitSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'windSpeed')">
+              <mat-select-trigger>
+                <span>{{windUnitSelected}}</span>
+              </mat-select-trigger>
+              <mat-option [value]="option.valueUnits" *ngFor="let option of windUnits">
+                {{option.value}} ({{option.valueUnits}})
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
+          </div>
+        </mat-form-field>
+      </li>
+
+      <!-- PRESSURE UNITS -->
+
+      <li class="units-list-item">
+        <mat-form-field class="custom-selected-field options-field-container">
+          <span>Pressure units</span>
+          <div class="options-field-wrap">
+
+            <mat-select [(ngModel)]="pressureUnitSelected" class="options-field-select" (selectionChange)="changeSelected($event.value, 'pressure')">
+              <mat-select-trigger>
+                <span>{{pressureUnitSelected}}</span>
+              </mat-select-trigger>
+
+              <mat-option [value]="option.valueUnits" *ngFor="let option of pressureUnits">
+                {{option.value}} ({{option.valueUnits}})
+              </mat-option>
+            </mat-select>
+
+            <mat-icon class="options-field-icon">
+              <span class="material-symbols-outlined">
+                expand_all
+              </span>
+            </mat-icon>
+          </div>
+        </mat-form-field>
+      </li>
+    </ul>
+   </section>
+
+   <mat-divider class="divider"></mat-divider>
+
+   <!-- ABOUT SECTION -->
+
+   <section class="section-about">
+    <h5>about weather</h5>
+    <ul class="section-about-list">
+      <li>
+        <a mat-list-item href="https://github.com/IevgeniiaAbdulina" target="_blank">
+          <div class="about-item">
+            <span>Feedback</span>
+            <span class="material-symbols-outlined">
+              chevron_right
+            </span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <!-- CONTACTS SECTION -->
+
+  <section class="section-about">
+    <h5>contacts</h5>
+    <ul class="section-about-list">
+      <li>
+        <app-footer></app-footer>
+      </li>
+    </ul>
+  </section>
+
+</mat-nav-list>

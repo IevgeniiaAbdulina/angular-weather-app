@@ -1,0 +1,72 @@
+button {
+  box-sizing: border-box;
+
+  &.btn {
+    width: 200px;
+    height: 36px;
+    background-color: $base-white;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  &.btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $base-white;
+    background-image: repeating-linear-gradient(
+      45deg,
+      $base-black 0px,
+      $base-black 1px,
+      $base-black 1px,
+      $base-white 1px,
+      $base-white 6px);
+    border-radius: inherit;
+    border: 1px solid $base-black;
+    transform:  translate(4px, 4px);
+  }
+
+  &.btn::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 36px;
+    background-color: $base-white;
+    border-radius: inherit;
+    border: 1px solid $base-red;
+  }
+
+  &.btn:hover {
+    &.btn::after {
+      border: 2px solid $base-red;
+      transition: 0.075s ease-in-out;
+    }
+  }
+
+  &.btn:active {
+    &.btn {
+      transform:  translate(4px, 4px);
+      transition: 0.075s ease-in-out;
+    }
+
+    &.btn::before {
+      transform:  translate(0px, 0px);
+      transition: 0.075s ease-in-out;
+    }
+  }
+
+  mat-icon {
+    &.btn-ic {
+      z-index: map-get($map: $z-indexes, $key: 'default');
+    }
+  }
+
+  span {
+    &.mdc-button__label {
+      flex: 1;
+    }
+  }
+}

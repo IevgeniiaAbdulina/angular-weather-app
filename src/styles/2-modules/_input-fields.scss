@@ -1,0 +1,13 @@
+mat-card-subtitle {
+  &.form-container {
+    display: flex;
+  }
+}
+
+mat-form-field {
+  &.search-form {
+    flex: 1 1 auto;
+    margin: 1rem 0
+  }
+
+}

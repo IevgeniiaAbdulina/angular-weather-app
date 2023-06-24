@@ -1,0 +1,25 @@
+<mat-card-content class="details">
+  <div class="details-card">
+    <span class="details-category">Humidity</span>
+    <div class="details-wrap">
+      <span class="details-data">{{customData.main.humidity}}</span>
+      <span class="details-units">{{units.humidity}}</span>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <span class="details-category">Wind</span>
+    <div class="details-wrap">
+      <span class="details-data">{{customData.wind.speed}}</span>
+      <span class="details-units">{{units.windSpeed}}</span>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <span class="details-category">Pressure</span>
+    <div class="details-wrap">
+      <span class="details-data">{{customData.main.pressure}}</span>
+    <span class="details-units">{{units.pressure}}</span>
+    </div>
+  </div>
+</mat-card-content>
