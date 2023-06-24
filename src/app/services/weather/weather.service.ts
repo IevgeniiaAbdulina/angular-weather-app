@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, delay, map } from 'rxjs';
+import { OPEN_WEATHER_KEY, OPEN_WEATHER_URL } from 'src/app/models/api-keys';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  APIkey: string = 'ea0bbc74362141bcef9e2e20bff7ec0f';
-
   constructor(private http: HttpClient) { }
 
   /**
@@ -15,8 +14,8 @@ export class WeatherService {
    *
    */
   getWeatherForCity(city: string): Observable<any> {
-    const path = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=ea0bbc74362141bcef9e2e20bff7ec0f`;
-    // another APPID = 695ed9f29c4599b7544d0db5c211d499
+    const units = 'metric';
+    const path = `${OPEN_WEATHER_URL}?q=${city}&units=${units}&APPID=${OPEN_WEATHER_KEY}`;
 
     return this.http.get<any>(path).pipe(
       map((data) => ({
@@ -35,8 +34,8 @@ export class WeatherService {
    * longitude
    */
   getWeatherForLatLon(lat: number, lon: number): Observable<any> {
-    const units = 'metric'; // Celsius
-    const path = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${this.APIkey}`;
+    const units = 'metric';
+    const path = `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=${units}&appid=${OPEN_WEATHER_KEY}`;
 
     return this.http.get<any>(path).pipe(
       map((data) => ({

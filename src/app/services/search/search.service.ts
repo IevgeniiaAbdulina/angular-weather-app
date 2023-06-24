@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GEO_DB_KEY, GEO_DB_URL } from 'src/app/models/api-keys';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   /**
    * [GET] Cities
    *
    */
   findCities(namePrefix: string) {
-    const path = `${this.URL}/cities`;
+    const path = GEO_DB_URL;
 
     const options = {
       method: 'GET' as const,
       headers: {
-        'X-RapidAPI-Key': 'af3cbae116mshd905baeea568143p1fb5c4jsnaea8ccd62c82',
+        'X-RapidAPI-Key': GEO_DB_KEY,
         'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
       } as const,
       params: {
