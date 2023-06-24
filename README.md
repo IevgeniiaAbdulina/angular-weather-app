@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://vercel.com">
+    <a href="https://angular-weather-app-six.vercel.app/weather">
       Demo
     </a>
     <span> | </span>
@@ -41,7 +41,7 @@
 </div>
 
 - You can try this project just by the link below:
-  > [The Angular project has been deployed with Vercel](https://vercel.com)
+  > [The Angular project has been deployed with Vercel](https://angular-weather-app-six.vercel.app/weather)
 - The Weather Application uses the [OpenWeather API](https://openweathermap.org/api) to provide a city's current weather forecast. The app also uses [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities) to Get global city, region, and country data for searching custom cities.
 - You can get a weather forecast for your geolocation (allow getting geolocation for your browser).
 - You can get a weather forecast for your chosen city.
