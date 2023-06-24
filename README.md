@@ -20,8 +20,6 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
 ## Table of Contents
 
 - [Overview](#overview)
@@ -30,8 +28,6 @@
 - [How to use](#how-to-use)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
-
-<!-- OVERVIEW -->
 
 ## Overview
 
@@ -45,7 +41,7 @@
 </div>
 
 - You can try this project just by the link below:
-  > [The project has been deployed on Vercel](https://vercel.com)
+  > [The Angular project has been deployed with Vercel](https://vercel.com)
 - The Weather Application uses the [OpenWeather API](https://openweathermap.org/api) to provide a city's current weather forecast. The app also uses [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities) to Get global city, region, and country data for searching custom cities.
 - You can get a weather forecast for your geolocation (allow getting geolocation for your browser).
 - You can get a weather forecast for your chosen city.
@@ -69,10 +65,6 @@ A list of major frameworks that I built this project using:
 - Detailed weather: Date, Temperature, Humidity, Wind, Pressure.
 - Choose your weather forecast units.
 - Supported languages: English
-  <!-- - Animated weather icons -->
-  <!-- - Dark and white theme are available -->
-  <!-- - Choose your favorite color template -->
-  <!-- - Free without advertisement -->
 
 ## Acknowledgements
 

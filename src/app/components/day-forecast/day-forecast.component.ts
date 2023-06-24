@@ -19,7 +19,6 @@ export class DayForecastComponent implements OnInit {
   ngOnInit(): void {
     this.unitsService.units.subscribe(data => {
       this.newUnits = data;
-      console.log(this.newUnits.temperature)
     })
    }
 }

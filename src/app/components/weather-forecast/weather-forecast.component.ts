@@ -34,14 +34,11 @@ export class WeatherForecastComponent implements OnInit {
     this.searchControl = new FormControl('');
     this.findCityName();
 
-    console.log(new Date().toLocaleTimeString())
-    // Update weather forecast every hour
-      setInterval(() => {
-        this.data$.subscribe(data => {
-          this.data$ = this.weatherService.getWeatherForCity(data.name)
-        })
-        console.log('Test timeout', new Date().toLocaleTimeString())
-      }, 3600000);
+    setInterval(() => {
+      this.data$.subscribe(data => {
+        this.data$ = this.weatherService.getWeatherForCity(data.name)
+      })
+    }, 3600000);
 
     this.getWeatherForLocation();
   }
