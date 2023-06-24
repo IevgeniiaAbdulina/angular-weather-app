@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-not-found.component.sass']
 })
 export class PageNotFoundComponent {
+
+  constructor(private router: Router) {}
+
+  back(): void {
+    this.router.navigate(['/weather'])
+  }
 
 }

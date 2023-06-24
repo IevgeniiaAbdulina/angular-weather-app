@@ -1,0 +1,34 @@
+/*
+********************************
+*
+*  PAGE NOT FOUND STYLE
+*
+*********************************
+*/
+
+.page-not-found-container {
+  width: auto;
+  height: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $base-white;
+
+  .attribute-storyset {
+    margin: 2rem auto;
+    a {
+      opacity: 0.6;
+      color: $base-black;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+
+}
